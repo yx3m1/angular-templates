@@ -1,0 +1,105 @@
+<app-header></app-header>
+
+<section class="main">
+  <div class="container">
+    <div class="row mb-4">
+
+      <div class="col-md-6">
+        <h4 class="mb-4">Shipping details:</h4>
+        <a [routerLink]="['/adress']">Edit my details</a>
+        <div class="col-12 themed-grid-col mb-4">
+          <div>{{user.firstname}} {{user.lastname}}</div>
+          <div>{{user.street}}</div>
+          <div>{{user.zip}}, {{user.town}}</div>
+          <div>{{user.country}}</div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+
+        <h4 class="mb-4">Shopping cart:</h4>
+        <a [routerLink]="['/shoppingcart']">Edit my cart</a>
+        <div *ngFor="let item of shoppingcartService.items">
+          <div class="row py-2">
+            <div class="col-2">
+              <span>{{item.quantity}} x</span>
+            </div>
+            <div class="col-6 my-auto">
+              <span>{{item.product.name}}</span>
+              <span *ngIf="item.product.size!='false'"> - Size {{item.product.size.toUpperCase()}}</span>
+            </div>
+            <div class="col-4 text-end">{{item.product.price*item.quantity | currency: 'EUR'}}</div>
+          </div>
+        </div>
+        <div *ngIf="shoppingcartService.promocode">
+          <div class="row py-2">
+            <div class="col-2">
+            </div>
+            <div class="col-6 my-auto">
+              <span>{{shoppingcartService.promocode.name}}</span>
+            </div>
+            <div class="col-4 text-end">{{shoppingcartService.promocode.value}} % discount</div>
+          </div>
+        </div>
+
+        <div class="row py-2 border-top">
+
+          <div class="col-2"></div>
+          <div class="col-6">
+            <span class="col text-muted">Shipping:</span>
+          </div>
+          <div class="col-4 text-end">
+            <span class="col text-muted">{{shoppingcartService.shipping | currency: 'EUR'}}</span>
+          </div>
+
+          <div class="col-2"></div>
+          <div class="col-6">
+            <span class="col">Subtotal: </span>
+          </div>
+          <div class="col-4 text-end">
+            <span class="col" id="totalprice">{{shoppingcartService.subtotal | currency: 'EUR'}}</span>
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+
+    <div class="text-end pb-4">
+      <button (click)="onSubmit()" class="btn btn-lg btn-primary w-100" id="submit" type="submit">Open Checkout</button>
+    </div>
+
+  </div>
+</section>
+
+<app-footer></app-footer>
+<app-toast></app-toast>
+
+<div #modal class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Checkout</h5>
+        <button class="btn-close" id="close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <p>Choose your favorite payment method</p>
+        <div class="col-md mt-4 mt-md-0">
+          <button (click)="payWithStripe()" class="btn btn-lg btn-primary w-100 mb-3" id="stripe-button" type="submit">
+            <span class="d-none spinner-border spinner-border-sm m-1" role="status" aria-hidden="true"></span>Stripe
+            <p class="text-small">Credit card, Giropay, Bancontact, Klarna</p>
+          </button>
+          <ngx-paypal [config]="payPalConfig"></ngx-paypal>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div #loader class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog d-flex flew-row justify-content-center align-items-center h-75">
+    <div class="spinner-border text-light" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+</div>

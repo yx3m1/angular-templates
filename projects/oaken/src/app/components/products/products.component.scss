@@ -1,0 +1,17 @@
+@import '../../style';
+
+/*--------------------------------------------------------------
+# Shop
+--------------------------------------------------------------*/
+.shop {
+  min-height: 100vh;
+}
+
+.sidebar-container {
+  top: 5rem;
+}
+
+.product .card-img-top {
+  max-height: 300px;
+  width: auto;
+}

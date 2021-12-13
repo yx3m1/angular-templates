@@ -1,0 +1,45 @@
+<app-header></app-header>
+
+<section id="shop" class="shop">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-4 order-lg-2 mb-4">
+        <div class="sticky-top sidebar-container">
+          <app-console></app-console>
+        </div>
+      </div>
+      <div class="col-lg-8 entries order-lg-1">
+        <div class="row row-cols-1 row-cols-sm-2 g-4">
+
+          <div *ngFor="let product of products">
+            <div class="col product">
+              <div class="card text-center">
+                <a [routerLink]="['/products', product._id]" class="d-flex flex-row justify-content-center">
+                  <img *ngIf="product.images?.length" [src]="product.images[0].src" class="img-fluid card-img-top">
+                </a>
+                <div class="card-body">
+                  <a [routerLink]="['/products', product._id]">
+                    <h4>{{product.name}}</h4>
+                  </a>
+                  <div class="d-flex flex-column justify-content-center">
+                    <h5 class="text-primary">{{product.price | currency: 'EUR'}} each</h5>
+                    <span class="flex-row text-muted">{{product.additional}}</span>
+                  </div>
+                  <div class="btn-group my-4">
+                    <button (click)="addToCart($event, product)" type="button" class="btn btn-md btn-primary">
+                      <i class="bi bi-cart2 position-relative"></i>
+                      Add to cart
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>
+<app-toast></app-toast>

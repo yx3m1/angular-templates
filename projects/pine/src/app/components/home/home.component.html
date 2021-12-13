@@ -1,0 +1,87 @@
+<app-header></app-header>
+
+<section class="main">
+  <div class="front-container">
+      <video class="front-cover d-none d-md-block" src="assets/images/cover.mp4" muted autoplay loop playsinline></video>
+      <img class="front-cover d-md-none">
+    <div class="front-container">
+      <h3> A warm <strong>Welcome</strong></h3>
+      <h1> Pine Template</h1>
+      <h2> Cool and neat design</h2>
+      <a href="/products" [routerLink]="['/products']" class="btn btn-lg btn-get-started"> Enter the Shop</a>
+    </div>
+  </div>
+</section>
+
+<section class="about my-5">
+  <div class="container">
+    <div class="section-title">
+      <h2> Start</h2>
+      <h3> About the <span>Template</span></h3>
+      <p>Created in 2020, the pine template provides you with the best from around the web.</p>
+    </div>
+    <div class="row content">
+      <div class="col-lg-6">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+        <ul>
+          <li>
+            <i class="bi bi-check-all"></i>
+            <p>Neat design</p>
+          </li>
+          <li>
+            <i class="bi bi-check-all"></i>
+            <p>Angular</p>
+          </li>
+          <li>
+            <i class="bi bi-check-all"></i>
+            <p>Featured shop</p>
+          </li>
+        </ul>
+      </div>
+      <div class="col-lg-6 pt-4 pt-lg-0">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sunt ut voluptatum eius sapiente, totam reiciendis temporibus qui quibusdam, recusandae sit vero unde, sed, incidunt et ea quo dolore laudantium consectetur!</p>
+        <p>Lorem ipsum dolor sit amet consectetur.</p>
+        <a href="/about" [routerLink]="['/about']" class="btn-learn-more">read more</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="products">
+  <div class="container my-3">
+    <div class="section-title">
+      <h2>Products</h2>
+      <h3>Choose from our <span>quality products</span></h3>
+    </div>
+    <div class="row row-cols-1 row-cols-md-2  row-cols-lg-3 g-4">
+
+      <div *ngFor="let product of products">
+        <div class="box text-center">
+          <a [routerLink]="['/products', product._id]" class="d-flex flex-row justify-content-center">
+            <img *ngIf="product.images?.length" [src]="product.images[0].src" class="img-fluid" width="150">
+          </a>
+          <a [routerLink]="['/products', product._id]">
+            <h3>{{product.name}}</h3>
+          </a>
+          <div class="d-flex flex-column justify-content-center">
+            <h4> {{product.price | currency: "EUR"}}<span> / Stück</span></h4>
+            <span class="flex-row text-muted">{{product.additional}}</span>
+          </div>
+          <div class="btn-group my-4">
+            <button (click)="addToCart($event, product)" type="button" class="btn btn-buy">
+              <i class="bi bi-cart2 position-relative"></i>
+              Add to cart
+            </button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="text-center p-4">
+    <a href="/products" [routerLink]="['/products']">show me more</a>
+  </div>
+</section>
+
+<app-footer></app-footer>
+<app-toast></app-toast>

@@ -1,0 +1,64 @@
+<app-header></app-header>
+
+<section id="subnavi" class="subnavi">
+  <div class="container">
+    <ol>
+      <li>
+        <a href="/"> Startseite</a>
+      </li>
+      <li>
+        <a href="/shop"> Shop</a>
+      </li>
+    </ol>
+    <h2> Einkaufen</h2>
+  </div>
+</section>
+
+<section class="main">
+  <div *ngIf="product" class="container pb-4">
+
+    <div class="row mx-auto text-center">
+      <h2 class="pb-4 h1" id="name">{{ product.name }}</h2>
+      <div class="col-md" id="images">
+        <div class="zoom-image">
+          <div id="image">
+            <img (click)="openImageModal($event)" class="img-fluid" [src]="image!.src" width="200">
+          </div>
+        </div>
+        <div class="d-flex flex-row my-4">
+          <i (click)="lastImage()"  class="flex-column bi bi-arrow-left-circle m-auto"></i>
+          <h4 class="m-auto w-50">{{image!.title}}</h4>
+          <i (click)="nextImage()" class="flex-column bi bi-arrow-right-circle m-auto"></i>
+        </div>
+      </div>
+      <div class="box col-md p-4">
+        <textarea *ngIf="product.description" rows="15" readonly>{{product.description}}</textarea>
+        <div class="tags d-flex flex-wrap justify-content-center gap-1 py-4">
+          <div *ngFor="let tag of product.tags">
+            <span (click)="searchForTag(tag)">{{ tag.name }}</span>
+          </div>
+        </div>
+        <div class="row">
+          <h4>{{product.price | currency: 'EUR'}}<span> / Stück</span></h4>
+          <span class="text-muted">{{product.additional}}</span>
+        </div>
+        <div class="btn-wrap m-4">
+          <a (click)="addToCart($event)" class="btn btn-buy">
+            <i class="bi bi-cart2 position-relative"></i>
+            Add to cart
+          </a>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<app-footer></app-footer>
+<app-toast></app-toast>
+
+<div #modal class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <img class="img-fluid m-auto">
+  </div>
+</div>

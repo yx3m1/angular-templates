@@ -1,0 +1,12 @@
+@import '../../style';
+
+.main {
+  min-height: 100vh;
+}
+
+:host-context(.darkmode) {
+  .main {
+    background: $dark;
+    color: $light;
+  }
+}

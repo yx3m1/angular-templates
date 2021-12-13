@@ -1,0 +1,99 @@
+$primary: #5E1224;
+$light: #f8f9fa;
+$medium: #414950;
+$dark: #212529;
+$muted: #6c757d;
+
+$btn-close-color: $muted;
+
+a {
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.main {
+  padding-top: 40px;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-outline-primary:hover  {
+  color: $light;
+}
+
+/*--------------------------------------------------------------
+# subnavi
+--------------------------------------------------------------*/
+.subnavi {
+  padding: 15px 0;
+  background: #f6f4f4;
+  margin-top: 80px;
+}
+
+
+.subnavi h2 {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.subnavi ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0 0 10px 0;
+  margin: 0;
+  font-size: 14px;
+}
+
+.subnavi ol li + li {
+  padding-left: 10px;
+}
+
+.subnavi ol li + li::before {
+  display: inline-block;
+  padding-right: 10px;
+  color: #655356;
+  content: "/";
+}
+
+/*--------------------------------------------------------------
+# Sections General
+--------------------------------------------------------------*/
+.section-bg {
+  background-color: #efebdc;
+}
+
+.section-title {
+  text-align: center;
+  padding-bottom: 30px;
+}
+
+.section-title h2 {
+  font-size: 13px;
+  letter-spacing: 1px;
+  font-weight: 700;
+  padding: 8px 20px;
+  line-height: 1;
+  margin: 0;
+  background: #fdeff2;
+  color: #5e1224;
+  display: inline-block;
+  text-transform: uppercase;
+  border-radius: 50px;
+}
+
+.section-title h3 {
+  margin: 15px 0 0 0;
+  font-size: 32px;
+  font-weight: 700;
+  color: $dark;
+}
+
+.section-title h3 span {
+  color: $primary;
+}
+
+.section-title p {
+  margin: 15px auto 0 auto;
+  font-weight: 600;
+}

@@ -1,0 +1,22 @@
+<div class="container">
+  <header class="d-flex flex-wrap justify-content-center py-3 mb-4 border-bottom fixed-top">
+    <div  class="logo d-flex align-items-center me-auto text-decoration-none">
+      <img #toindex src="assets/images/logo.png" alt="" class="img-fluid">
+    </div>
+
+    <i [routerLink]="['/shoppingcart']" class="bi bi-cart2 mx-4 position-relative order-sm-2">
+      <span class="badge position-absolute top-0 start-100 translate-middle p-2 bg-primary rounded-circle">
+        {{shoppingcartService.items.length}}
+        <span class="visually-hidden">Products</span>
+      </span>
+    </i>
+
+    <ul class="nav nav-pills order-sm-1">
+      <li class="nav-item"><a href="/home" [routerLink]="['/home']" [routerLinkActive]="['active']" class="nav-link">Home</a></li>
+      <li class="nav-item"><a href="/products" [routerLink]="['/products']" [routerLinkActive]="['active']" class="nav-link">Shop</a></li>
+      <li class="nav-item"><a href="/blog" [routerLink]="['/blog']" [routerLinkActive]="['active']" class="nav-link">Blog</a></li>
+      <li class="nav-item"><a href="/about" [routerLink]="['/about']" [routerLinkActive]="['active']" class="nav-link">About</a></li>
+    </ul>
+
+  </header>
+</div>

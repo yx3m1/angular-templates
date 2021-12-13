@@ -1,0 +1,38 @@
+@import '../../style';
+
+.badge {
+  cursor: pointer;
+}
+
+textarea[readonly] {
+  width: 100%;
+  padding: .375rem .75rem;
+  resize: none;
+  border: 1px solid #aaa;
+  border-radius: .25rem;
+}
+
+.bi-arrow-left-circle, .bi-arrow-right-circle {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+:host-context(.darkmode) {
+
+  .main {
+    background: $dark;
+    color: $light;
+  }
+
+  .card {
+    background: $dark;
+    color: $light;
+    border-color: $light;
+  }
+
+  textarea[readonly] {
+    background: $medium;
+    color: $light;
+  }
+
+}

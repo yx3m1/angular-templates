@@ -1,0 +1,76 @@
+<app-header></app-header>
+
+<div class="masthead">
+    <div class="container">
+        <div class="masthead-subheading">Welcome to my store!</div>
+        <div class="masthead-heading text-uppercase">It Is Nice To Meet You</div>
+        <a class="btn btn-primary btn-xl text-uppercase" href="#shop">See My Products</a>
+    </div>
+</div>
+
+<section class="page-section" id="services" #services>
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Services</h2>
+            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+        </div>
+        <div class="row text-center">
+            <div class="col-md-4">
+                <span class="circle">
+                  <i class="bi bi-cart-fill"></i>
+                </span>
+                <h4 class="my-3">E-Commerce</h4>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+            </div>
+            <div class="col-md-4">
+                <span class="circle">
+                  <i class="bi bi-laptop"></i>
+                </span>
+                <h4 class="my-3">Responsive Design</h4>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+            </div>
+            <div class="col-md-4">
+                <span class="circle">
+                  <i class="bi bi-lock-fill"></i>
+                </span>
+                <h4 class="my-3">Web Security</h4>
+                <p class="text-muted">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima maxime quam architecto quo inventore harum ex magni, dicta impedit.</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- categories Grid-->
+<section class="page-section bg-light" id="shop" #shop>
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Shop</h2>
+            <h3 class="section-subheading text-muted">Lorem ipsum dolor sit amet consectetur.</h3>
+        </div>
+        <div class="categories row g-2">
+          <div class="col-4 categories-item" *ngFor="let category of categories">
+              <a (click)="searchForCategory(category)" class="categories-link">
+                <div class="categories-hover">
+                    <div class="categories-hover-content">
+                      <i class="bi bi-arrow-right-circle text-dark"></i>
+                    </div>
+                </div>
+                <div *ngIf="category.images[0]">
+                  <img class="img-fluid" [src]="category.images[0].src" alt="..."/>
+                </div>
+                <div class="categories-caption">
+                    <div class="categories-caption-heading">{{ category.name }}</div>
+                    <div class="categories-caption-subheading text-muted">{{ category.desc }}</div>
+                </div>
+              </a>
+          </div>
+        </div>
+    </div>
+</section>
+<!-- About -->
+<app-about></app-about>
+<!-- Contact -->
+<app-contact></app-contact>
+
+
+<app-footer></app-footer>
+<app-toast></app-toast>

@@ -1,0 +1,22 @@
+$primary: #6E9A42;
+$bamboo: #E2DBAC;
+$light: #f8f9fa;
+$medium: #414950;
+$dark: #212529;
+$muted: #6c757d;
+
+$btn-close-color: $muted;
+
+a {
+  cursor: pointer;
+}
+
+.main {
+  padding-top: 100px;
+}
+
+.btn-primary,
+.btn-primary:hover,
+.btn-outline-primary:hover  {
+  color: $light;
+}

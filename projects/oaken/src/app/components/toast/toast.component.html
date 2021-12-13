@@ -1,0 +1,10 @@
+<div #toast class="toast fixed-top m-2 ms-auto" role="alert" aria-live="assertive" aria-atomic="true">
+  <div class="toast-header">
+    <i *ngIf="message.type == 'success'" class="bi bi-check-circle-fill me-2"></i>
+    <i *ngIf="message.type == 'error'" class="bi bi-exclamation-triangle-fill me-2"></i>
+    <strong class="me-auto">{{message.title}}</strong>
+    <small class="text-muted">just now</small>
+    <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+  </div>
+  <div class="toast-body">{{message.text}}</div>
+</div>

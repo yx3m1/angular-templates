@@ -1,0 +1,33 @@
+@import '../../style';
+
+.featurette-divider {
+  margin: 5rem 0; /* Space out the Bootstrap <hr> more */
+}
+
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+}
+
+.bi-facebook {
+  font-size: 2rem;
+  color: #4267B2;
+}
+
+.bi-instagram {
+  font-size: 2rem;
+  color: #C13584;
+}
+
+.bi-twitter {
+  font-size: 2rem;
+  color: #1DA1F2;
+}
+
+:host-context(.darkmode) {
+  .main {
+    background: $dark;
+    color: $light;
+  }
+}

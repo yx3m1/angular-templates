@@ -1,0 +1,27 @@
+@import '../../style';
+
+.main {
+  min-height: 100vh;
+}
+
+.text-small {
+  font-size: 10px;
+  padding: 0;
+  margin: 0;
+}
+
+
+:host-context(.darkmode) {
+
+  .main {
+    background: $dark;
+    color: $light;
+  }
+
+  .modal-content {
+    background: $dark;
+    border-color: $light;
+    color: $light;
+  }
+
+}

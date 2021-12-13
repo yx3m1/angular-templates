@@ -1,0 +1,68 @@
+<app-header></app-header>
+<section class="main">
+  <div class="container col-xxl-8 px-4 py-5">
+    <div class="row flex-lg-row-reverse align-items-center g-5 py-5">
+      <div class="col-10 col-sm-8 col-lg-6">
+        <img src="assets/images/bamboo.jpg" class="d-block mx-lg-auto img-fluid rounded" alt="Bootstrap Themes" width="700" height="500" loading="lazy">
+      </div>
+      <div class="col-lg-6">
+        <h1 class="display-5 fw-bold lh-1 mb-3">Responsive Bamboo Shop Template</h1>
+        <p class="lead">Quickly design and customize responsive mobile-first sites with Bootstrap, the world’s most popular front-end open source toolkit, featuring Sass variables and mixins, responsive grid system, extensive prebuilt components, and powerful JavaScript plugins.</p>
+        <div class="d-grid gap-2 d-md-flex justify-content-md-start">
+          <button type="button" class="btn btn-primary btn-lg px-4 me-md-2">Primary</button>
+          <button type="button" class="btn btn-secondary btn-lg px-4">Secondary</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="banner py-5">
+  <div class="section-content container">
+    <div class="row g-4">
+      <div class="col-12 col-sm-6">
+        <h1 class="fs-8 fs-md-9">Advanced Bamboo Products</h1>
+        <ul class="list-unstyled mx-auto">
+          <li class="mb-6 d-flex align-items-center"><i class="bi bi-check-square me-2"></i> Advanced Booking Datepicker</li>
+          <li class="mb-6 d-flex align-items-center"><i class="bi bi-check-square me-2"></i> One page booking form</li>
+          <li class="mb-6 d-flex align-items-center"><i class="bi bi-check-square me-2"></i> Easy step by step form</li>
+        </ul>
+        <a href="/products" [routerLink]="['/products']" role="button" class="visit-button btn btn-outline-light">Visit the shop</a>
+      </div>
+      <div class="col-12 col-sm-6">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
+          <h3 class="fs-8 fs-md-9">Subscribe to our newsletter</h3>
+          <p>Monthly digest of whats new and exciting from us.</p>
+          <div class="d-flex w-100 gap-2">
+            <input formControlName="email" type="text" class="form-control" placeholder="your Email">
+            <div class="invalid-tooltip">
+              Your input must be at least 3 characters.
+            </div>
+            <button class="btn btn-outline-light" type="submit">Subscribe</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="blog py-5">
+  <div class="container py-lg-3">
+    <h2 class="h3">News from the blog</h2>
+    <p class="text-muted mb-3 pb-4">Latest marketplace news, success stories and tutorials</p>
+
+    <div *ngFor="let post of posts">
+      <article class="blog-post py-4">
+        <h2 class="text-primary border-bottom">{{post.title}}</h2>
+        <p class="text-muted">{{post.date | date}} by <a href="#">{{post.author}}</a></p>
+        <p>{{post.text}}</p>
+      </article>
+    </div>
+
+    <div class="text-center pt-4 mt-md-2">
+      <a [routerLink]="['/blog']" class="read-more btn btn-outline-accent">Read more posts</a>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>
+<app-toast></app-toast>

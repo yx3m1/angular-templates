@@ -1,0 +1,15 @@
+@import '../../style';
+
+:host-context(.darkmode) {
+
+  .main {
+    background: $dark;
+    color: $light;
+  }
+
+  .form-control, .form-select {
+    background-color: $medium;
+    color: $light;
+  }
+
+}

@@ -1,0 +1,51 @@
+<app-header></app-header>
+
+<section class="main">
+  <div class="container w-50">
+    <h3>Your Purchase has been completed!</h3>
+    <p class="text-muted">You will receive this document via email at {{order?.user?.email}}.</p>
+    <br>
+    <div class="row mb-2">
+      <div class="col-6 themed-grid-col">Status:</div>
+      <div class="col-6 themed-grid-col">
+        <p *ngIf="order?.paid" class="text-success">PAID <i class="bi bi-check-all"></i></p>
+        <p *ngIf="!order?.paid" class="text-warning">PENDING <i class="bi bi-hourglass-split"></i></p>
+      </div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-6 themed-grid-col">Shipping details:</div>
+      <div class="col-6 themed-grid-col">
+        <div>{{order?.user?.firstname}} {{order?.user?.lastname}}</div>
+        <div>{{order?.user?.street}}</div>
+        <div>{{order?.user?.zip}}, {{order?.user?.town}}</div>
+        <div>{{order?.user?.country}}</div>
+      </div>
+    </div>
+    <hr class="mt-6 mb-6">
+    <div *ngFor="let item of order?.items" class="row mb-2">
+      <div class="col-2 themed-grid-col">{{item.quantity}}x</div>
+      <div class="col-5 themed-grid-col">{{item.product.name}}</div>
+      <div class="col-3 themed-grid-col text-end">{{item.product.price*item.quantity | currency: 'EUR'}}</div>
+    </div>
+    <div *ngIf="order?.promocode" class="row mb-2">
+      <div class="col-2 themed-grid-col"></div>
+      <div class="col-5 themed-grid-col">{{order?.promocode.name}}</div>
+      <div class="col-3 themed-grid-col text-end">- {{order?.promocode.value}}%</div>
+    </div>
+    <hr>
+    <div class="row mb-2">
+      <div class="col-2 themed-grid-col"></div>
+      <div class="col-5 themed-grid-col">Shipping:</div>
+      <div class="col-3 themed-grid-col text-end">{{order?.shipping.price | currency: 'EUR'}}</div>
+    </div>
+    <div class="row mb-2">
+      <div class="col-2 themed-grid-col"></div>
+      <div class="col-5 themed-grid-col">Subtotal:</div>
+      <div class="col-3 themed-grid-col text-end">{{order?.subtotal | currency: 'EUR'}}</div>
+    </div>
+    <br>
+    <a class="text-center" [routerLink]="['/home']">back</a>
+  </div>
+</section>
+
+<app-footer></app-footer>

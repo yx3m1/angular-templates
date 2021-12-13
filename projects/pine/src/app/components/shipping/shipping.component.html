@@ -1,0 +1,39 @@
+<app-header></app-header>
+<section id="subnavi" class="subnavi">
+  <div class="container">
+    <ol>
+      <li>
+        <a href="/home" [routerLink]="['/home']">Home</a>
+      </li>
+      <li>
+        <a href="/shop" [routerLink]="['/shop']">Shop</a>
+      </li>
+    </ol>
+    <h2>Shipping</h2>
+  </div>
+</section>
+
+<section id="shipping" class='shipping mb-3'>
+
+  <div class="container my-4">
+    <p>To ship our products, we rely on Shipment as our shipping partner. The prices are calculated according to size and weight and are listed in the following table:</p>
+    <br>
+    <h3>Price table</h3>
+    <div class="row mt-4">
+      <div class="col-4 themed-grid-col">Type</div>
+      <div class="col-4 themed-grid-col">Weight</div>
+      <div class="col-4 themed-grid-col">Price</div>
+      <hr class="mt-2">
+    </div>
+    <div *ngFor="let shipping of shippings">
+      <div class="row mt-4">
+        <div class="col-4 themed-grid-col">{{ shipping!.type }}</div>
+        <div class="col-4 themed-grid-col">up to  {{ (shipping!.maxweight/1000.) }} kg</div>
+        <div class="col-4 themed-grid-col">{{ shipping!.price | currency: 'EUR' }}</div>
+        <hr class="mt-2">
+      </div>
+    </div>
+  </div>
+</section>
+
+<app-footer></app-footer>

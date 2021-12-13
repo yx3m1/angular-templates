@@ -1,0 +1,78 @@
+<app-header></app-header>
+<section id="subnavi" class="subnavi">
+  <div class="container">
+    <ol>
+      <li>
+        <a href="/home" [routerLink]="['/home']">Home</a>
+      </li>
+      <li>
+        <a href="/shop" [routerLink]="['/shop']">Shop</a>
+      </li>
+    </ol>
+    <h2>Contact</h2>
+  </div>
+</section>
+
+<section id="contact" class="contact py-4">
+  <div class="container">
+    <div class="section-title">
+      <h2>Contact</h2>
+      <p>Questions, requests, suggestions?</p>
+      <p>Simply fill out the contact form or send an email.</p>
+    </div>
+    <div class="row">
+      <div class="col-lg-4 mb-sm-4">
+        <div class="info">
+          <div class="email">
+            <i class="bi bi-envelope"></i>
+            <h4>Email:</h4>
+            <p> kleinerweinshop@yx3m1.com</p>
+          </div>
+          <div class="phone">
+            <i class="bi bi-telephone"></i>
+            <h4>Phone:</h4>
+            <p> +1 5589 55488 55</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-lg-8 mt-5 mt-lg-0">
+        <h4>Contact form</h4>
+        <form id="contactForm" [formGroup]="contactForm" (ngSubmit)="onSubmit()" class="needs-validation" novalidate>
+          <div class="row g-2 mb-2">
+            <div class="col-md">
+              <div class="form-floating">
+                <input formControlName="firstname" type="text" class="form-control" id="floatingInputGrid" placeholder="name@example.com">
+                <label for="floatingInputGrid">First name</label>
+              </div>
+            </div>
+            <div class="col-md">
+              <div class="form-floating">
+                <input formControlName="lastname" type="text" class="form-control" id="floatingInputGrid" placeholder="name@example.com">
+                <label for="floatingInputGrid">Last name</label>
+              </div>
+            </div>
+          </div>
+          <div class="form-floating mb-2">
+            <input formControlName="email" type="email" class="form-control" id="floatingInputGrid" placeholder="name@example.com">
+            <label for="floatingInputGrid">Email</label>
+          </div>
+          <div class="form-floating mb-2">
+            <input formControlName="subject" type="text" class="form-control" id="floatingInputGrid" placeholder="name@example.com">
+            <label for="floatingInputGrid">Subject</label>
+          </div>
+          <div class="form-floating mb-2">
+            <textarea formControlName="text" class="form-control" placeholder="Leave a comment here" id="floatingTextarea2" style="height: 200px"></textarea>
+            <label for="floatingTextarea2">Your Message</label>
+          </div>
+          <div class="btn-wrap mt-4 float-end">
+            <button [disabled]="!contactForm.valid" type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</section>
+<app-footer></app-footer>
+<app-toast></app-toast>

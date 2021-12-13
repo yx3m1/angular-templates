@@ -1,0 +1,34 @@
+@import '../../style';
+
+.main {
+  min-height: 100vh;
+}
+
+.img-thumbnail {
+  max-height: 200px;
+  width: auto;
+}
+
+:host-context(.darkmode) {
+
+  .main {
+    background: $dark;
+    color: $light;
+  }
+
+  .form-control {
+    background: $medium;
+    color: $light;
+  }
+
+  .img-thumbnail {
+    background: $medium;
+  }
+
+  .modal-content {
+    background: $dark;
+    border-color: $light;
+    color: $light;
+  }
+
+}

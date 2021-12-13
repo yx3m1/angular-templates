@@ -1,0 +1,135 @@
+@import '../../style';
+
+.sidebar {
+  padding: 30px;
+  margin: 0 0 60px 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .sidebar-title {
+  font-size: 20px;
+  font-weight: 700;
+  padding: 0 0 0 0;
+  margin: 0 0 15px 0;
+  color: #493c3e;
+  position: relative;
+}
+
+.sidebar .sidebar-item {
+  margin-bottom: 30px;
+}
+
+.sidebar .search-form {
+  background: #fff;
+  border: 1px solid #d3cacb;
+  padding: 3px 10px;
+  position: relative;
+  border-radius: 50px;
+}
+
+.sidebar .search-form input[type="text"] {
+  border: 0;
+  padding: 4px;
+  width: calc(100% - 42px);
+}
+
+.sidebar .search-form button {
+  position: absolute;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  top: 0;
+  right: -2px;
+  bottom: 0;
+  border: 0;
+  background: none;
+  font-size: 16px;
+  padding: 0 20px;
+  margin: -1px;
+  background: #5e1224;
+  color: #fff;
+  transition: 0.3s;
+}
+
+.sidebar .search-form button:hover {
+  box-shadow: inset 100px 100px rgba(255, 255, 255, 0.2);
+}
+
+.sidebar .categories ul {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar .categories ul li + li {
+  padding-top: 10px;
+}
+
+.sidebar .categories ul a {
+  color: #655356;
+}
+
+.sidebar .categories ul a:hover {
+  color: #5e1224;
+}
+
+.sidebar .categories ul a span {
+  padding-left: 5px;
+  color: #b1a0a3;
+  font-size: 14px;
+}
+
+.sidebar .recent-posts .post-item + .post-item {
+  margin-top: 15px;
+}
+
+.sidebar .recent-posts img {
+  width: 80px;
+  float: left;
+}
+
+.sidebar .recent-posts h4 {
+  font-size: 15px;
+  margin-left: 95px;
+  font-weight: bold;
+}
+
+.sidebar .recent-posts h4 a {
+  color: #110e0e;
+  transition: 0.3s;
+}
+
+.sidebar .recent-posts h4 a:hover {
+  color: #5e1224;
+}
+
+.sidebar .recent-posts time {
+  display: block;
+  margin-left: 95px;
+  font-style: italic;
+  font-size: 14px;
+  color: #b1a0a3;
+}
+
+.tags span {
+  color: #8e767a;
+  font-size: 14px;
+  text-transform: capitalize;
+  padding: 6px 14px;
+  margin: 0 6px 8px 0;
+  border: 1px solid #ede9e9;
+  display: inline-block;
+  border-radius: 50px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.tags span:hover {
+  color: #fff;
+  border: 1px solid #5e1224;
+  background: #5e1224;
+}
+
+.tags ul a span {
+  padding-left: 5px;
+  color: #dfd8d9;
+  font-size: 14px;
+}

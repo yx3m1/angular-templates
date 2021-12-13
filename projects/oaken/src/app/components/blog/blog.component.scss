@@ -1,0 +1,22 @@
+@import '../../style';
+
+.read-more {
+  color: $muted;
+}
+
+.read-more:hover {
+  color: $dark;
+}
+
+:host-context(.darkmode) {
+
+  .main {
+    background: $dark;
+    color: $light;
+  }
+
+  .read-more:hover {
+    color: $light;
+  }
+
+}

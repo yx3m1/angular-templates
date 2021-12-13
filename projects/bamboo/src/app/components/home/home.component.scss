@@ -1,0 +1,45 @@
+@import '../../style';
+
+.banner {
+  background: $primary;
+  color: $light;
+}
+
+.bi-check-square {
+  font-size: 1.5em;
+}
+
+.read-more {
+  color: $muted;
+}
+
+.read-more:hover {
+  color: $dark;
+}
+
+:host-context(.darkmode) {
+
+  .main {
+    background: $dark;
+    color: $light;
+  }
+
+  .banner {
+    background: $medium;
+    color: $light;
+  }
+
+  .bi-check-square {
+    color: $light;
+  }
+
+  .blog {
+    background: $dark;
+    color: $light;
+  }
+
+  .read-more:hover {
+    color: $light;
+  }
+
+}

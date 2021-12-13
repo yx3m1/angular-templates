@@ -1,0 +1,87 @@
+<app-header></app-header>
+<section class="main">
+  <div class="container">
+    <h3>Shopping cart</h3>
+    <div class="mt-4 mb-4">
+      <a (click)="openPromocodeModal()" class="my-auto" id="code">Enter a promo code</a>
+    </div>
+    <div class="row mb-4">
+      <div class="col-6 col-md-8">Products</div>
+      <div class="col-2">Price</div>
+      <div class="col-2">Quantity</div>
+      <hr class="mt-2">
+    </div>
+
+    <div *ngFor="let item of shoppingcartService.items">
+      <div class="row py-2 border-bottom">
+        <a [routerLink]="['/products', item.product._id]" class="col-2 d-none d-md-block">
+          <img *ngIf="item.product.images?.length" class="img-thumbnail" [src]="item.product.images[0].src">
+        </a>
+        <div class="col-6 my-auto">
+          <span>{{item.product.name}}</span>
+          <span *ngIf="item.product.size!='false'"> - Size {{item.product.size.toUpperCase()}}</span>
+        </div>
+        <div class="col-2 my-auto">{{item.product.price*item.quantity | currency: 'EUR'}}</div>
+        <div class="col-2 my-auto">
+          <input class="form-control" type="number"  min="1" [max]="item.product.storage" [value]="item.quantity" (change)="setAmount($event, item)">
+        </div>
+        <div class="col-2 float-right">
+          <i (click)="removeFromCart(item)" class="bi bi-trash-fill my-auto d-md-none" id="remove"></i>
+          <a (click)="removeFromCart(item)" class="d-none d-md-block text-secondary" id="remove">Remove</a>
+        </div>
+      </div>
+    </div>
+
+    <div *ngIf="shoppingcartService.promocode">
+      <div class="row py-2 border-bottom">
+        <div class="col-2 d-none d-md-block">
+          <img class="img-thumbnail" src="assets/images/discount.png">
+        </div>
+        <div class="col-6 my-auto">
+          <span>{{shoppingcartService.promocode.name}}</span>
+        </div>
+        <div class="col-4  my-auto">{{shoppingcartService.promocode.value}} % discount</div>
+        <div class="col-1 float-right">
+        </div>
+      </div>
+    </div>
+
+    <div class="row py-4">
+      <div class="col-6"></div>
+      <div class="col-4 mb-2">
+        <div class="row">
+          <span class="col text-muted">Shipping: </span>
+          <span class="col text-muted">{{shoppingcartService.shipping | currency: 'EUR'}}</span>
+        </div>
+        <div class="row">
+          <span class="col">Subtotal: </span>
+          <span class="col" id="totalprice">{{shoppingcartService.subtotal | currency: 'EUR'}}</span>
+        </div>
+      </div>
+      <div class="col-md-2">
+        <button [routerLink]="['/adress']" class="w-100 btn btn-lg btn-primary" id="toadress" role="button">Next</button>
+      </div>
+    </div>
+  </div>
+</section>
+<app-footer></app-footer>
+<app-toast></app-toast>
+
+<div #modal class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">You have received a promo code?</h5>
+        <button class="btn-close" id="close" type="button" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body"><p>Enter your code here, then add the discount to your cart!</p>
+        <div class="form-group">
+          <input class="form-control mb-4" id="input" name="code" type="text" placeholder="Enter your promo code" value="" required="" (change)="setPromoCode($event)">
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-primary" (click)="sendPromoCode()">Redeem</button>
+      </div>
+    </div>
+  </div>
+</div>

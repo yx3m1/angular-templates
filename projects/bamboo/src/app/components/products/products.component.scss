@@ -1,0 +1,41 @@
+@import '../../style';
+
+.search {
+  max-width: 600px;
+}
+
+.products {
+  background: $light;
+}
+
+.product a {
+  text-decoration: none;
+}
+
+.product .card-img-top {
+  max-height: 300px;
+  width: auto;
+}
+
+.product .badge {
+  cursor: pointer;
+}
+
+:host-context(.darkmode) {
+
+  .main {
+    background: $dark;
+    color: $light;
+  }
+
+  .products {
+    background: $medium;
+  }
+
+  .card {
+    background: $dark;
+    color: $light;
+    border-color: $light;
+  }
+
+}

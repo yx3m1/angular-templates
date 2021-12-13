@@ -1,0 +1,52 @@
+<app-header></app-header>
+
+<section class="main">
+  <div *ngIf="product" class="container py-5">
+
+    <div class="row mx-auto text-center">
+      <h2 class="pb-4 h1" id="name">{{product.name}}</h2>
+      <div class="col-md" id="images">
+        <div class="zoom-image">
+          <div id="image">
+            <img (click)="openImageModal($event)" class="img-fluid" [src]="image!.src" width="200">
+          </div>
+        </div>
+        <div class="d-flex flex-row my-4">
+          <i (click)="lastImage()"  class="flex-column bi bi-arrow-left-circle m-auto"></i>
+          <h4 class="m-auto w-50">{{image!.title}}</h4>
+          <i (click)="nextImage()" class="flex-column bi bi-arrow-right-circle m-auto"></i>
+        </div>
+      </div>
+      <div class="card col-md shadow-sm p-4">
+        <div class="card-body">
+          <textarea *ngIf="product.description" rows="15" readonly>{{product.description}}</textarea>
+          <div class="d-flex flex-wrap justify-content-center gap-1">
+            <div *ngFor="let tag of product.tags">
+              <span (click)="searchForTag(tag)" class="badge bg-primary">{{tag}}</span>
+            </div>
+          </div>
+          <div class="row">
+            <h4 class="mt-4"><sup>€</sup>{{product.price | number:'.2'}} pro Stück</h4>
+            <span class="text-muted">{{product.additional}}</span>
+          </div>
+          <div class="btn-wrap m-4">
+            <a (click)="addToCart($event)" class="btn btn-primary">
+              <i class="bi bi-cart2 position-relative"></i>
+              Add to cart
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<app-footer></app-footer>
+<app-toast></app-toast>
+
+<div #modal class="modal fade" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <img class="img-fluid m-auto">
+  </div>
+</div>

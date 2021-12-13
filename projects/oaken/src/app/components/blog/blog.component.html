@@ -1,0 +1,18 @@
+<app-header></app-header>
+<section class="main">
+  <div class="container col-xxl-8 px-4 py-5 border-bottom">
+    <h2 class="h3">Bamboo Blog</h2>
+    <p class="text-muted mb-3 pb-4">Latest Bamboo news, success stories and tutorials</p>
+
+    <div *ngFor="let post of posts">
+      <article class="blog-post py-4">
+        <h2 class="text-primary border-bottom">{{post.title}}</h2>
+        <p class="text-muted">{{post.date | date}} by <a href="#">{{post.author}}</a></p>
+        <p>{{post.text}}</p>
+      </article>
+    </div>
+
+    <div class="text-center pt-4 mt-md-2"><a class="btn btn-outline-accent" href="blog-grid-sidebar.html">Read older posts<i class="ci-arrow-right fs-ms ms-1"></i></a></div>
+  </div>
+</section>
+<app-footer></app-footer>

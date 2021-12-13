@@ -1,0 +1,23 @@
+@import '../../style';
+
+.toast {
+  background: $light;
+  z-index: 9999;
+}
+
+.toast-body {
+  font-size: 12px;
+}
+
+:host-context(.darkmode) {
+  .toast {
+    background: $dark;
+    border-color: $medium;
+    color: $light;
+  }
+  .toast-header {
+    background: $dark;
+    border-color: $medium;
+    color: $light;
+  }
+}

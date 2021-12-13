@@ -1,0 +1,40 @@
+@import '../../style';
+
+header {
+  background: $light;
+}
+
+.logo img {
+  max-height: 40px;
+  margin-left: 20px;
+}
+
+.nav-link {
+  color: $dark;
+}
+
+.bi-cart2 {
+  font-size: 1.8em;
+  outline: none;
+  cursor: pointer;
+}
+
+.badge {
+  font-size: 12px;
+  line-height: 8px;
+}
+
+:host-context(.darkmode) {
+  header {
+    background: $dark;
+    color: $light;
+  }
+
+  .nav-link {
+    color: $light;
+  }
+
+  .nav-link[active] {
+    color: $light;
+  }
+}

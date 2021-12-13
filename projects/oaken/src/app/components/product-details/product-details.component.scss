@@ -1,0 +1,177 @@
+@import '../../style';
+
+/*--------------------------------------------------------------
+# subnavi
+--------------------------------------------------------------*/
+.subnavi {
+  padding: 15px 0;
+  background: #f6f4f4;
+  margin-top: 80px;
+}
+
+
+.subnavi h2 {
+  font-size: 26px;
+  font-weight: 600;
+}
+
+.subnavi ol {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0 0 10px 0;
+  margin: 0;
+  font-size: 14px;
+}
+
+.subnavi ol li + li {
+  padding-left: 10px;
+}
+
+.subnavi ol li + li::before {
+  display: inline-block;
+  padding-right: 10px;
+  color: #655356;
+  content: "/";
+}
+
+
+
+.badge {
+  cursor: pointer;
+}
+
+textarea[readonly] {
+  width: 100%;
+  padding: .375rem .75rem;
+  resize: none;
+  border: 1px solid #aaa;
+  border-radius: .25rem;
+}
+
+.bi-arrow-left-circle, .bi-arrow-right-circle {
+  font-size: 2rem;
+  cursor: pointer;
+}
+
+.box {
+  padding: 20px;
+  border-radius: 8px;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.box {
+  text-align: center;
+  background: #f9f9f9;
+}
+
+.box h3 {
+  font-weight: 400;
+  padding: 15px;
+  margin-top: 15px;
+  font-size: 20px;
+  font-weight: 600;
+  color: #493c3e;
+}
+
+.box h4 {
+  font-size: 42px;
+  color: #5e1224;
+  font-weight: 500;
+  font-family: "Open Sans", sans-serif;
+  margin-bottom: 20px;
+}
+
+.box h4 sup {
+  font-size: 20px;
+  top: -15px;
+  left: -3px;
+}
+
+.box h4 span {
+  color: #bababa;
+  font-size: 16px;
+  font-weight: 300;
+}
+
+.box ul {
+  padding: 0;
+  list-style: none;
+  color: #493c3e;
+  text-align: center;
+  line-height: 20px;
+  font-size: 14px;
+}
+
+.box ul li {
+  padding-bottom: 16px;
+}
+
+.box ul i {
+  color: #5e1224;
+  font-size: 18px;
+  padding-right: 4px;
+}
+
+.box ul .na {
+  color: #ccc;
+  text-decoration: line-through;
+}
+
+.box .btn-wrap {
+  padding: 15px;
+  text-align: center;
+}
+
+.box .btn-buy {
+  display: inline-block;
+  padding: 10px 40px 12px 40px;
+  border-radius: 50px;
+  border: none;
+  background: #5e1224;
+  color: #fff;
+  font-size: 14px;
+  font-weight: 400;
+  font-family: "Nunito", sans-serif;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.box .btn-buy:hover {
+  box-shadow: inset 100px 100px rgba(255, 255, 255, 0.2);
+}
+
+.box .btn-buy[inactive] {
+  background: #888;
+}
+
+.tags span {
+  color: #8e767a;
+  font-size: 14px;
+  text-transform: capitalize;
+  padding: 6px 14px;
+  margin: 0 6px 8px 0;
+  border: 1px solid #ede9e9;
+  display: inline-block;
+  border-radius: 50px;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+.tags span:hover {
+  color: #fff;
+  border: 1px solid #5e1224;
+  background: #5e1224;
+}
+
+.tags ul a span {
+  padding-left: 5px;
+  color: #dfd8d9;
+  font-size: 14px;
+}
+
+.modal {
+  z-index: 9999;
+}

@@ -1,0 +1,9 @@
+@import '../../style';
+
+:host-context(.darkmode) {
+
+  .footer {
+    background: $dark;
+  }
+
+}

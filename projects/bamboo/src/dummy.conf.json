@@ -1,0 +1,12 @@
+{
+    "/api/*": {
+        "target": "https://yx3m1-dummy-default-rtdb.europe-west1.firebasedatabase.app",
+        "pathRewrite": {
+          "^/api": ""
+        },
+        "secure": true,
+        "withCredentials": false,
+        "changeOrigin": true,
+        "logLevel": "debug"
+    }
+}
